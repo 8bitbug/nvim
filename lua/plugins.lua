@@ -79,7 +79,7 @@ require("lazy").setup({
     'windwp/nvim-autopairs',
     event = "InsertEnter",
     config = true
-  },	
+  },
 })
 
 local lsp = require('lsp-zero')
