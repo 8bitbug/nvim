@@ -80,6 +80,20 @@ require("lazy").setup({
     event = "InsertEnter",
     config = true
   },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function () 
+      local configs = require("nvim-treesitter.configs")
+
+      configs.setup({
+          ensure_installed = { "c", "cpp" },
+          sync_install = false,
+          highlight = { enable = true },
+          indent = { enable = true },  
+        })
+    end
+ },
 })
 
 local lsp = require('lsp-zero')
