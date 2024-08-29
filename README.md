@@ -18,5 +18,5 @@ Neovim plugins:
 * Neovim lsp
 * Nvim-autopair
 
-Setup lsp:
+Language servers:
 * clangd for c/cpp
