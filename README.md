@@ -11,6 +11,8 @@ File structure:
     └── plugins.lua
 ```
 
+Package manager: Lazy.nvim
+
 Neovim plugins:
 * Treesitter
 * Nvim-cmp
