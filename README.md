@@ -1,8 +1,10 @@
 # Neovim config
 File structure:
 ```
-.                                   ├── init.lua
-├── lazy-lock.json                  └── lua
+.
+├── init.lua
+├── lazy-lock.json
+└── lua
     ├── base
     │   ├── init.lua
     │   └── settings.lua
