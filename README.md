@@ -14,9 +14,10 @@ File structure:
 Neovim plugins:
 * Treesitter
 * Nvim-cmp
-* lualine
+* Lualine
 * Neovim lsp
 * Nvim-autopair
+* Luasnip
 
 Language servers:
 * clangd for c/cpp
