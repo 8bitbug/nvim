@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    {'morhetz/gruvbox'},
+    { "rose-pine/neovim", name = "rose-pine" },
     {'neovim/nvim-lspconfig'},  
     {'hrsh7th/nvim-cmp'},
     {'hrsh7th/cmp-nvim-lsp'},
@@ -24,7 +24,7 @@ require("lazy").setup({
       require('lualine').setup {
         options = {
           icons_enabled = true,
-          theme = 'gruvbox',
+          theme = 'rose-pine',
           component_separators = { left = '', right = '' },
           section_separators = { left = '', right = '' },
           disabled_filetypes = {},
@@ -63,7 +63,7 @@ require("lazy").setup({
       local configs = require("nvim-treesitter.configs")
 
       configs.setup({
-          ensure_installed = { "c", "cpp" },
+          ensure_installed = { "c", "cpp", "lua" },
           sync_install = false,
           highlight = { 
               enable = true,
@@ -75,7 +75,7 @@ require("lazy").setup({
  },
 })
 
-vim.cmd('colorscheme gruvbox')
+vim.cmd('colorscheme rose-pine-main')
 
 ---
 -- LSP configuration
