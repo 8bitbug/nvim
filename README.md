@@ -11,12 +11,15 @@ File structure:
     └── plugins.lua
 ```
 
+Package manager: Lazy.nvim
+
 Neovim plugins:
 * Treesitter
 * Nvim-cmp
-* lualine
+* Lualine
 * Neovim lsp
 * Nvim-autopair
+* Luasnip
 
-Setup lsp:
+Language servers:
 * clangd for c/cpp
