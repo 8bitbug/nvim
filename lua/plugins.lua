@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    {'morhetz/gruvbox'},
     {'neovim/nvim-lspconfig'},  
     {'hrsh7th/nvim-cmp'},
     {'hrsh7th/cmp-nvim-lsp'},
@@ -64,12 +65,17 @@ require("lazy").setup({
       configs.setup({
           ensure_installed = { "c", "cpp" },
           sync_install = false,
-          highlight = { enable = true },
-          indent = { enable = true },  
+          highlight = { 
+              enable = true,
+              additional_vim_regex_highlighting = false,
+          },
+          indent = { enable = true },
         })
     end
  },
 })
+
+vim.cmd('colorscheme gruvbox')
 
 ---
 -- LSP configuration
