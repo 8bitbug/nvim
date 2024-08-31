@@ -1,16 +1,5 @@
 # Neovim config
-File structure:
-```
-.
-├── init.lua                              ├── lazy-lock.json
-├── lua
-│   ├── base                              │   │   ├── init.lua
-│   │   ├── plugins
-│   │   │   ├── cmp.lua
-│   │   │   └── lsp.lua
-│   │   └── settings.lua
-│   └── plugins.lua                       └── README.md
-```
+This is my personal neovim config for the icons and devicons to work you need a nerd font perferably an monospaced so the icons dont get cut off
 
 Package manager: Lazy.nvim
 
