@@ -8,7 +8,7 @@ File structure:
     ├── base
     |   ├── config
     |   |    |── cmp.lua
-    |   |    |── lsp.lua
+    |   |    └── lsp.lua
     │   ├── init.lua
     │   └── settings.lua
     └── plugins.lua
