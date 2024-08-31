@@ -6,6 +6,9 @@ File structure:
 ├── lazy-lock.json
 └── lua
     ├── base
+    |   ├── config
+    |   |    |── cmp.lua
+    |   |    |── lsp.lua
     │   ├── init.lua
     │   └── settings.lua
     └── plugins.lua
@@ -20,6 +23,8 @@ Neovim plugins:
 * Neovim lsp
 * Nvim-autopair
 * Luasnip
+* Mason
 
 Language servers:
 * clangd for c/cpp
+* Lua_ls for lua
