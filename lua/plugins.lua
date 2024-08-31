@@ -14,17 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     { "rose-pine/neovim", name = "rose-pine" },
     {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
-    },
-    {
         'nvim-telescope/telescope.nvim', tag = '0.1.8',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
-    {'hrsh7th/nvim-cmp'},
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'L3MON4D3/LuaSnip'},
     {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -82,19 +74,17 @@ require("lazy").setup({
     end
  },
  {
-    "williamboman/mason-lspconfig.nvim",
-    "williamboman/mason.nvim",
- },
- {
-    "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
+    "neovim/nvim-lspconfig",
     dependencies = {
-      "hrsh7th/nvim-cmp", -- Autocompletion plugin
-      "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
-      "hrsh7th/cmp-buffer", -- Buffer completions
-      "hrsh7th/cmp-path", -- Path completions
-      "hrsh7th/cmp-cmdline", -- Command line completions
-      "L3MON4D3/LuaSnip", -- Snippet engine
-      "saadparwaiz1/cmp_luasnip", -- Snippet completions
+      "hrsh7th/nvim-cmp",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
     }
   }
 })

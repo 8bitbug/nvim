@@ -1,3 +1,3 @@
 require('base.settings')
-require('base.lsp')
-require('base.cmp')
+require('base.plugins.lsp')
+require('base.plugins.cmp')
