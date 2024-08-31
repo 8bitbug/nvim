@@ -2,16 +2,14 @@
 File structure:
 ```
 .
-├── init.lua
-├── lazy-lock.json
-└── lua
-    ├── base
-    |   ├── config
-    |   |    |── cmp.lua
-    |   |    └── lsp.lua
-    │   ├── init.lua
-    │   └── settings.lua
-    └── plugins.lua
+├── init.lua                              ├── lazy-lock.json
+├── lua
+│   ├── base                              │   │   ├── init.lua
+│   │   ├── plugins
+│   │   │   ├── cmp.lua
+│   │   │   └── lsp.lua
+│   │   └── settings.lua
+│   └── plugins.lua                       └── README.md
 ```
 
 Package manager: Lazy.nvim
