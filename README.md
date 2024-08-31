@@ -10,6 +10,7 @@ File structure:
 │   │   │   └── lsp.lua
 │   │   └── settings.lua
 │   └── plugins.lua                       └── README.md
+
 ```
 
 Package manager: Lazy.nvim
