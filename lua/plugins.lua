@@ -86,7 +86,7 @@ require("lazy").setup({
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
     }
-  }
+  },
 })
 
 vim.cmd('colorscheme rose-pine-main')
