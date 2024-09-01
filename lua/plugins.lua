@@ -22,6 +22,10 @@ require("lazy").setup({
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   {
+    'glepnir/dashboard-nvim',
+    event = "VimEnter"
+  },
+  {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = function()
@@ -31,6 +35,9 @@ require("lazy").setup({
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+  },
+  {
+    "nvim-tree/nvim-tree.lua"
   },
   {
     "neovim/nvim-lspconfig",

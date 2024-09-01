@@ -7,10 +7,11 @@ require('lualine').setup {
     disabled_filetypes = {
       statusline = {},
       winbar = {},
+      'NvimTree',
     },
     ignore_focus = {},
     always_divide_middle = true,
-    globalstatus = false,
+    globalstatus = true,
     refresh = {
       statusline = 1000,
       tabline = 1000,
@@ -37,7 +38,6 @@ require('lualine').setup {
   winbar = {},
   inactive_winbar = {},
   extensions = {
-    'fugitive', -- Example extension
-    'nvim-tree', -- Example extension for file explorer
+     'nvim-tree'
   }
 }
