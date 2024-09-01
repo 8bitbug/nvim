@@ -12,6 +12,8 @@ Neovim plugins:
 * Luasnip
 * Mason
 * Telescope
+* Tree
+* Dashboard
 
 Theme: rose-pine
 
