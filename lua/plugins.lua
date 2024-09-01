@@ -22,8 +22,11 @@ require("lazy").setup({
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   {
-    'windwp/nvim-autopairs',
+    "windwp/nvim-autopairs",
     event = "InsertEnter",
+    config = function()
+        require('nvim-autopairs').setup({})
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
