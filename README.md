@@ -11,6 +11,9 @@ Neovim plugins:
 * Nvim-autopair
 * Luasnip
 * Mason
+* Telescope
+
+Theme: rose-pine
 
 Language servers:
 * clangd for c/cpp
