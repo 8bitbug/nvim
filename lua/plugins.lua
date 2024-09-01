@@ -11,6 +11,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.opt.termguicolors = true
+
 require("lazy").setup({
   { "rose-pine/neovim", name = "rose-pine" },
   {
@@ -20,10 +22,6 @@ require("lazy").setup({
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
-  {
-    'glepnir/dashboard-nvim',
-    event = "VimEnter"
   },
   {
     "windwp/nvim-autopairs",
@@ -36,8 +34,11 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
   },
+  {"nvim-tree/nvim-tree.lua"},
   {
-    "nvim-tree/nvim-tree.lua"
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons',
   },
   {
     "neovim/nvim-lspconfig",
