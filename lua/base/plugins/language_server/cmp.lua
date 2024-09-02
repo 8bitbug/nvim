@@ -1,4 +1,5 @@
-local cmp = require'cmp'
+local cmp = require('cmp')
+local lspkind = require('lspkind')
 
 cmp.setup({
   snippet = {
@@ -14,11 +15,39 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<Tab>'] = cmp.mapping.select_next_item(),
     ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+    ['<Down>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+        cmp.scroll_docs(4)
+      else
+        fallback()
+      end
+    end, { 'i', 'c' }),
+    ['<Up>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+        cmp.scroll_docs(-4)
+      else
+        fallback()
+      end
+    end, { 'i', 'c' }),
   },
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'buffer' },
     { name = 'path' },
-  }
+  },
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol_text',
+      maxwidth = 50,
+      before = function (entry, vim_item)
+        return vim_item
+      end
+    })
+  },
+  experimental = {
+    ghost_text = true,
+  },
 })
