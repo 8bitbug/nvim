@@ -48,8 +48,9 @@ mason.setup_handlers({
 })
 
 -- Setup for system-installed LSP (clangd)
-lspconfig.clangd.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
+lspconfig.clangd.setup{
     cmd = { "clangd" },
-})
+    filetypes = { "c", "cpp", "objc", "objcpp" },
+    root_dir = lspconfig.util.root_pattern("compile_commands.json", ".clangd", ".git"),
+    single_file_support = true,
+}

@@ -8,6 +8,8 @@ vim.o.number = true
 
 vim.g.mapleader = " "
 
+vim.api.nvim_set_keymap('n', '<leader>cl', ':terminal<CR>', { noremap = true, silent = true })
+
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
