@@ -9,7 +9,7 @@ if git clone https://github.com/neovim/neovim.git; then
     make CMAKE_BUILD_TYPE=RelWithDebInfo
     ls
     cd build
-    cpack -G Deb
+    cpack -G DEB
     sudo dpkg -i --force-overwrite nvim-linux64.deb
     echo "I: Installed neovim"
 else
