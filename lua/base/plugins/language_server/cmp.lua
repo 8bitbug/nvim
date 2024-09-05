@@ -7,7 +7,7 @@ cmp.setup({
       border = 'rounded',
     },
     documentation = {
-      border = 'rounded',
+      border = 'solid',
     },
   },
   snippet = {
@@ -60,11 +60,18 @@ cmp.setup({
   },
 })
 
+-- Get the kanagawa theme colors
 local colors = require('kanagawa.colors').setup()
 
+-- Set the background and border of the completion menu
 vim.api.nvim_set_hl(0, 'Pmenu', { bg = colors.sumiInk1, fg = colors.fujiWhite })
 vim.api.nvim_set_hl(0, 'PmenuSel', { bg = colors.waveBlue2, fg = colors.fujiWhite, bold = true })
 vim.api.nvim_set_hl(0, 'PmenuSbar', { bg = colors.sumiInk0 })
 vim.api.nvim_set_hl(0, 'PmenuThumb', { bg = colors.crystalBlue })
 
+-- Optional: Customize borders for the completion window (if using a plugin that supports borders)
 vim.api.nvim_set_hl(0, 'CmpBorder', { fg = colors.sumiInk4, bg = colors.sumiInk1 })
+
+-- Set the background and border for the floating documentation window
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = colors.sumiInk1, fg = colors.fujiWhite })
+vim.api.nvim_set_hl(0, 'FloatBorder', { fg = colors.sumiInk4, bg = colors.sumiInk1 })
