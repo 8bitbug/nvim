@@ -2,6 +2,14 @@ local cmp = require('cmp')
 local lspkind = require('lspkind')
 
 cmp.setup({
+  window = {
+    completion = {
+      border = 'rounded',
+    },
+    documentation = {
+      border = 'rounded',
+    },
+  },
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
@@ -51,3 +59,12 @@ cmp.setup({
     ghost_text = true,
   },
 })
+
+local colors = require('kanagawa.colors').setup()
+
+vim.api.nvim_set_hl(0, 'Pmenu', { bg = colors.sumiInk1, fg = colors.fujiWhite })
+vim.api.nvim_set_hl(0, 'PmenuSel', { bg = colors.waveBlue2, fg = colors.fujiWhite, bold = true })
+vim.api.nvim_set_hl(0, 'PmenuSbar', { bg = colors.sumiInk0 })
+vim.api.nvim_set_hl(0, 'PmenuThumb', { bg = colors.crystalBlue })
+
+vim.api.nvim_set_hl(0, 'CmpBorder', { fg = colors.sumiInk4, bg = colors.sumiInk1 })

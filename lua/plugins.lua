@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.opt.termguicolors = true
 
 require("lazy").setup({
-  { 'catppuccin/nvim', as = 'catppuccin' },
+  { "rebelot/kanagawa.nvim" },
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.8',
     dependencies = { 'nvim-lua/plenary.nvim' }
@@ -57,26 +57,4 @@ require("lazy").setup({
   },
 })
 
-require("catppuccin").setup({
-    flavour = "mocha",
-    transparent_background = false,
-    term_colors = true,
-    integrations = {
-        treesitter = true,
-        lsp_trouble = true,
-        cmp = true,
-        gitsigns = true,
-        telescope = true,
-        nvimtree = {
-            enabled = true,
-            show_root = false,
-        },
-        bufferline = true,
-        markdown = true,
-        lightspeed = true,
-        ts_rainbow = true,
-        notify = true,
-    }
-})
-
-vim.cmd[[colorscheme catppuccin]]
+vim.cmd("colorscheme kanagawa-dragon")
