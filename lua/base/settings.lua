@@ -1,10 +1,10 @@
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
-vim.o.autoindent = true
-vim.o.smartindent = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 
-vim.o.number = true
+vim.opt.number = true
 
 vim.g.mapleader = " "
 
