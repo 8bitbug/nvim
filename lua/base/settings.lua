@@ -18,3 +18,6 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 vim.api.nvim_set_keymap('n', '<leader>tt', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>tf', ':NvimTreeFindFile<CR>', { noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<leader>f', ':ALEFix<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>l', ':ALELint<CR>', { noremap = true, silent = true })

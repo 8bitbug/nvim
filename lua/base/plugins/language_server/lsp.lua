@@ -54,15 +54,3 @@ lspconfig.clangd.setup{
     root_dir = lspconfig.util.root_pattern("compile_commands.json", ".clangd", ".git"),
     single_file_support = true,
 }
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = {"*.cpp", "*.h", "*.c"},
-  callback = function()
-    local current_buffer = vim.api.nvim_get_current_buf()
-    local formatted_content = vim.fn.system("clang-format", vim.api.nvim_buf_get_lines(current_buffer, 0, -1, true))
-
-    if vim.v.shell_error == 0 then
-      vim.api.nvim_buf_set_lines(current_buffer, 0, -1, false, vim.split(formatted_content, "\n"))
-    end
-  end
-})

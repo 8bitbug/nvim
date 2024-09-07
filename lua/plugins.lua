@@ -16,6 +16,22 @@ vim.opt.termguicolors = true
 require("lazy").setup({
   { "rebelot/kanagawa.nvim" },
   {
+      'dense-analysis/ale',               -- ALE for linting and formatting
+      config = function()
+          -- ALE Configuration for Clang-Tidy and Clang-Format
+          vim.g.ale_linters = {
+              cpp = {'clangtidy'},
+              c = {'clangtidy'},
+          }
+          vim.g.ale_fixers = {
+              cpp = {'clang-format'},
+              c = {'clang-format'},
+          }
+          vim.g.ale_lint_on_save = 1      -- Enable linting on save
+          vim.g.ale_fix_on_save = 1       -- Enable auto-format on save
+      end
+  },
+  {
     'nvim-telescope/telescope.nvim', tag = '0.1.8',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
