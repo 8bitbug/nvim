@@ -15,8 +15,11 @@ Neovim plugins:
 * Tree
 * Dashboard
 
-Theme: rose-pine
+Theme: Kanagawa dragon
 
 Language servers:
 * clangd for c/cpp
 * Lua_ls for lua
+
+Formatters:
+* clang-format for c/cpp
