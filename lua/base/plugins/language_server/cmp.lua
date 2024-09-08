@@ -47,10 +47,10 @@ cmp.setup({
     end, { 'i', 'c' }),
   },
   sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-    { name = 'buffer' },
-    { name = 'path' },
+    { name = 'nvim_lsp', priority = 1000 },
+    { name = 'luasnip', priority = 800 },
+    { name = 'buffer', priority = 500 },
+    { name = 'path', priority = 300 },
   },
   formatting = {
     format = lspkind.cmp_format({
@@ -66,14 +66,19 @@ cmp.setup({
   },
 })
 
+
 local colors = require('kanagawa.colors').setup()
 
-vim.api.nvim_set_hl(0, 'Pmenu', { bg = colors.sumiInk1, fg = colors.fujiWhite })
-vim.api.nvim_set_hl(0, 'PmenuSel', { bg = colors.waveBlue2, fg = colors.fujiWhite, bold = true })
-vim.api.nvim_set_hl(0, 'PmenuSbar', { bg = colors.sumiInk0 })
-vim.api.nvim_set_hl(0, 'PmenuThumb', { bg = colors.crystalBlue })
+local highlights = {
+  Pmenu = { bg = colors.sumiInk1, fg = colors.fujiWhite },
+  PmenuSel = { bg = colors.waveBlue2, fg = colors.fujiWhite, bold = true },
+  PmenuSbar = { bg = colors.sumiInk0 },
+  PmenuThumb = { bg = colors.crystalBlue },
+  CmpBorder = { fg = colors.sumiInk4, bg = colors.sumiInk1 },
+  NormalFloat = { bg = colors.sumiInk1, fg = colors.fujiWhite },
+  FloatBorder = { fg = colors.sumiInk4, bg = colors.sumiInk1 },
+}
 
-vim.api.nvim_set_hl(0, 'CmpBorder', { fg = colors.sumiInk4, bg = colors.sumiInk1 })
-
-vim.api.nvim_set_hl(0, 'NormalFloat', { bg = colors.sumiInk1, fg = colors.fujiWhite })
-vim.api.nvim_set_hl(0, 'FloatBorder', { fg = colors.sumiInk4, bg = colors.sumiInk1 })
+for group, opts in pairs(highlights) do
+  vim.api.nvim_set_hl(0, group, opts)
+end

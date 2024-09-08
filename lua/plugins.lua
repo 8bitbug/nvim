@@ -18,7 +18,6 @@ require("lazy").setup({
   {
       'dense-analysis/ale',               -- ALE for linting and formatting
       config = function()
-          -- ALE Configuration for Clang-Tidy and Clang-Format
           vim.g.ale_linters = {
               cpp = {'clangtidy'},
               c = {'clangtidy'},
@@ -73,4 +72,4 @@ require("lazy").setup({
   },
 })
 
-vim.cmd("colorscheme kanagawa-dragon")
+vim.cmd[[colorscheme kanagawa-wave]]
