@@ -13,7 +13,7 @@ cmp.setup({
       border = 'rounded',
     },
     documentation = {
-      border = 'solid',
+      border = 'rounded',
     },
   },
   snippet = {

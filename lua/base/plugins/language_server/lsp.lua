@@ -7,6 +7,18 @@ mason.setup({
     ensure_installed = { "lua_ls" },
 })
 
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = "rounded",
+})
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    border = "rounded",
+})
+
+vim.diagnostic.config({
+    float = { border = "rounded" }
+})
+
 local on_attach = function(client, bufnr)
     if client.name == "clangd" then
         client.server_capabilities.documentFormattingProvider = false
@@ -14,7 +26,7 @@ local on_attach = function(client, bufnr)
 
     local buf_set_keymap = function(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local buf_set_option = function(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-    local opts = { noremap=true, silent=true }
+    local opts = { noremap = true, silent = true }
 
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -66,7 +78,7 @@ mason.setup_handlers({
 })
 
 -- Setup for system-installed LSP (clangd)
-lspconfig.clangd.setup{
+lspconfig.clangd.setup {
     cmd = { "clangd", "--header-insertion=never", "--background-index", "--completion-style=detailed" },
     filetypes = { "c", "cpp", "objc", "objcpp" },
     root_dir = lspconfig.util.root_pattern("compile_commands.json", ".clangd", ".git"),
