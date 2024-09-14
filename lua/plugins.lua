@@ -14,7 +14,19 @@ vim.opt.rtp:prepend(lazypath)
 vim.opt.termguicolors = true
 
 require("lazy").setup({
-  { "rebelot/kanagawa.nvim" },
+  {
+    'craftzdog/solarized-osaka.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("solarized-osaka").setup({
+        styles = {
+            floats = "transparent"
+        },
+      })
+      vim.cmd[[colorscheme solarized-osaka]]
+    end
+  },
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
@@ -57,5 +69,3 @@ require("lazy").setup({
     }
   },
 })
-
-vim.cmd [[colorscheme kanagawa]]

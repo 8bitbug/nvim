@@ -11,9 +11,11 @@ cmp.setup({
   window = {
     completion = {
       border = 'rounded',
+      winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
     },
     documentation = {
       border = 'rounded',
+      winhighlight = "Normal:CmpDoc",
     },
   },
   snippet = {
@@ -66,19 +68,5 @@ cmp.setup({
   },
 })
 
-
-local colors = require('kanagawa.colors').setup()
-
-local highlights = {
-  Pmenu = { bg = colors.sumiInk1, fg = colors.fujiWhite },
-  PmenuSel = { bg = colors.waveBlue2, fg = colors.fujiWhite, bold = true },
-  PmenuSbar = { bg = colors.sumiInk0 },
-  PmenuThumb = { bg = colors.crystalBlue },
-  CmpBorder = { fg = colors.sumiInk4, bg = colors.sumiInk1 },
-  NormalFloat = { bg = colors.sumiInk1, fg = colors.fujiWhite },
-  FloatBorder = { fg = colors.sumiInk4, bg = colors.sumiInk1 },
-}
-
-for group, opts in pairs(highlights) do
-  vim.api.nvim_set_hl(0, group, opts)
-end
+vim.cmd([[highlight CmpPmenu guibg=NONE guifg=NONE]])
+vim.cmd([[highlight CmpDoc guibg=NONE guifg=NONE]])
