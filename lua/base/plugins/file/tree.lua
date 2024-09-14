@@ -17,3 +17,17 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
+
+vim.cmd [[
+  highlight NvimTreeNormal guibg=NONE
+  highlight NvimTreeNormalNC guibg=NONE
+  highlight NvimTreeEndOfBuffer guibg=NONE
+  highlight NvimTreeFolderIcon guifg=#719e07
+  highlight NvimTreeFolderName guifg=#719e07
+  highlight NvimTreeOpenedFolderName guifg=#719e07
+  highlight NvimTreeEmptyFolderName guifg=#719e07
+  highlight NvimTreeFileIcon guifg=#268bd2
+  highlight NvimTreeExecFile guifg=#859900
+  highlight NvimTreeSpecialFile guifg=#cb4b16
+  highlight NvimTreeSymlink guifg=#2aa198
+]]
