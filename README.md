@@ -1,5 +1,6 @@
 # Neovim config
 This is my personal neovim config for the icons and devicons to work you need a nerd font perferably an monospaced so the icons dont get cut off
+in telescope, nvim-tree and etc
 
 Package manager: Lazy.nvim
 
@@ -13,13 +14,15 @@ Neovim plugins:
 * Mason
 * Telescope
 * Tree
-* Dashboard
 
-Theme: Kanagawa dragon
+Theme: Solarized osaka
 
 Language servers:
-* clangd for c/cpp
+* clangd for c/c++
 * Lua_ls for lua
 
 Formatters:
-* clang-format for c/cpp
+* clang-format for c/c++
+
+Linters:
+* clang-tidy for c/c++
