@@ -1,5 +1,7 @@
 # Neovim config
-This is my personal neovim config for the icons and devicons to work you need a nerd font perferably an monospaced so the icons dont get cut off
+This is my personal neovim config. 
+
+For the icons and devicons to work you need a nerd font perferably an monospaced so the icons dont get cut off
 in telescope, nvim-tree and etc
 
 Package manager: Lazy.nvim
@@ -14,6 +16,7 @@ Neovim plugins:
 * Mason
 * Telescope
 * Tree
+* Alpha
 
 Theme: Solarized osaka
 
@@ -26,3 +29,7 @@ Formatters:
 
 Linters:
 * clang-tidy for c/c++
+
+**Disclaimer**
+You need to install clangd, clang-tidy and clang-format via your systems package manager or build from source
+Make sure to include an compile_flags.txt  in your home directory for clang-tidy to work properly.
