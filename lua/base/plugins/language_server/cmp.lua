@@ -5,54 +5,54 @@ local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
 cmp.setup({
-    window = {
-        completion = {
-            border = 'rounded',
-            winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None"
-        },
-        documentation = {border = 'rounded', winhighlight = "Normal:CmpDoc"}
+  window = {
+    completion = {
+      border = 'rounded',
+      winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None"
     },
-    snippet = {
-        expand = function(args) require('luasnip').lsp_expand(args.body) end
-    },
-    mapping = {
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({select = true}),
-        ['<Tab>'] = cmp.mapping.select_next_item(),
-        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-        ['<Down>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-                cmp.scroll_docs(4)
-            else
-                fallback()
-            end
-        end, {'i', 'c'}),
-        ['<Up>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-                cmp.scroll_docs(-4)
-            else
-                fallback()
-            end
-        end, {'i', 'c'})
-    },
-    sources = {
-        {name = 'nvim_lsp', priority = 1000},
-        {name = 'luasnip', priority = 800}, {name = 'buffer', priority = 500},
-        {name = 'path', priority = 300}
-    },
-    formatting = {
-        format = lspkind.cmp_format({
-            mode = 'symbol_text',
-            maxwidth = 50,
-            before = function(entry, vim_item) return vim_item end
-        })
-    },
-    experimental = {ghost_text = true}
+    documentation = { border = 'rounded', winhighlight = "Normal:CmpDoc" }
+  },
+  snippet = {
+    expand = function(args) require('luasnip').lsp_expand(args.body) end
+  },
+  mapping = {
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<Tab>'] = cmp.mapping.select_next_item(),
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+    ['<Down>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+        cmp.scroll_docs(4)
+      else
+        fallback()
+      end
+    end, { 'i', 'c' }),
+    ['<Up>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+        cmp.scroll_docs(-4)
+      else
+        fallback()
+      end
+    end, { 'i', 'c' })
+  },
+  sources = {
+    { name = 'nvim_lsp', priority = 1000 },
+    { name = 'luasnip',  priority = 800 }, { name = 'buffer', priority = 500 },
+    { name = 'path', priority = 300 }
+  },
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol_text',
+      maxwidth = 50,
+      before = function(entry, vim_item) return vim_item end
+    })
+  },
+  experimental = { ghost_text = true }
 })
 
 vim.cmd([[highlight CmpPmenu guibg=NONE guifg=NONE]])

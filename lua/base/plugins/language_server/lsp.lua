@@ -1,13 +1,11 @@
 local lspconfig = require('lspconfig')
 local mason = require('mason-lspconfig')
-
 require('mason').setup()
+
 mason.setup({ ensure_installed = { "lua_ls" } })
 
-vim.lsp.handlers["textDocument/hover"] =
-    vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-vim.lsp.handlers["textDocument/signatureHelp"] =
-    vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
 vim.diagnostic.config({ float = { border = "rounded" } })
 
@@ -16,9 +14,7 @@ local on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = true
   end
 
-  local buf_set_keymap = function(...)
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
-  end
+  local buf_set_keymap = function(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local opts = { noremap = true, silent = true }
 
   buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
@@ -26,20 +22,16 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'K', '<cmd>lua vim.cmd("Man " .. vim.fn.expand("<cword>"))<CR>', opts)
 
+  buf_set_keymap('n', '<leader>i', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-
   buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format({ timeout_ms = 2000 })<CR>', opts)
-
-  buf_set_keymap('n', '<leader>h', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 
   if client.server_capabilities.documentFormattingProvider then
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.format({ timeout_ms = 2000 })
-      end
+      callback = function() vim.lsp.buf.format({ timeout_ms = 2000 }) end
     })
   end
 end
@@ -76,12 +68,16 @@ mason.setup_handlers({
 
 lspconfig.clangd.setup {
   cmd = {
-    "clangd", "--header-insertion=never", "--background-index",
-    "--completion-style=detailed", "--clang-tidy", "--clang-tidy-checks=*",
-    "--compile-commands-dir=~/.compile_flags.txt"
+    "clangd", 
+    "--header-insertion=never", 
+    "--background-index",
+    "--completion-style=detailed", 
+    "--clang-tidy", 
+    "--clang-tidy-checks=*",
+    "--compile-commands-dir=~/compile_flags.txt"
   },
   filetypes = { "c", "cpp", "objc", "objcpp" },
-  root_dir = lspconfig.util.root_pattern("compile_commands.json", ".clangd", ".git"),
+  root_dir = lspconfig.util.root_pattern("compile_commands.json", ".clangd", ".git"),  -- Ensure your project has one of these files
   single_file_support = true,
   on_attach = on_attach,
   capabilities = capabilities,
