@@ -78,13 +78,28 @@ lspconfig.clangd.setup {
     "--completion-style=detailed",
     "--clang-tidy",
     "--clang-tidy-checks=*",
-    "--compile-commands-dir=~/compile_flags.txt"
+    "--compile-commands-dir=~/compile_flags.txt",
   },
   filetypes = { "c", "cpp", "objc", "objcpp" },
   root_dir = lspconfig.util.root_pattern("compile_commands.json", ".clangd", ".git"),
   single_file_support = true,
   on_attach = on_attach,
-  capabilities = capabilities,
+  capabilities = vim.tbl_extend('keep', capabilities or {}, {
+    textDocument = {
+      publishDiagnostics = {
+        relatedInformation = true,
+        tagSupport = {
+          valueSet = { 1, 2 }
+        },
+        severity = {
+          [1] = "error",
+          [2] = "warning",
+          [3] = "info",
+          [4] = "hint"
+        },
+      },
+    },
+  }),
   commands = {
     ClangdSwitchSourceHeader = {
       function() vim.cmd("ClangdSwitchSourceHeader") end,

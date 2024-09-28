@@ -10,6 +10,17 @@ vim.opt.termguicolors = true
 
 require("lazy").setup({
   {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {},
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require('gitsigns').setup()
+    end
+  },
+  {
     "goolord/alpha-nvim",
     event = "VimEnter",
   },
