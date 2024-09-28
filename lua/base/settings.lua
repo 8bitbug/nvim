@@ -20,3 +20,4 @@ vim.api.nvim_set_keymap('n', '<leader>tt', ':NvimTreeToggle<CR>', { noremap = tr
 vim.api.nvim_set_keymap('n', '<leader>tf', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<leader>xx', ':Trouble diagnostics toggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>xf', ':Trouble diagnostics focus<CR>', { noremap = true, silent = true })

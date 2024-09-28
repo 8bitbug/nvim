@@ -12,7 +12,12 @@ require("lazy").setup({
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {},
+    config = function()
+      require("trouble").setup {
+        use_diagnostics_signs = true,
+        auto_close = true,
+      }
+    end,
   },
   {
     "lewis6991/gitsigns.nvim",
