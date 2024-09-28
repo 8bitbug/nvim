@@ -22,9 +22,13 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.cmd("Man " .. vim.fn.expand("<cword>"))<CR>', opts)
+  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 
-  buf_set_keymap('n', '<leader>i', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  if client.name == "clangd" then
+    buf_set_keymap('n', '<leader>m', '<cmd>lua vim.cmd("Man " .. vim.fn.expand("<cword>"))<CR>', opts)
+    buf_set_keymap('n', '<leader>cm', '<cmd>lua vim.cmd("CppMan " .. vim.fn.expand("<cword>"))<CR>', opts)
+  end
+
   buf_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
   buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format({ timeout_ms = 2000 })<CR>', opts)
 
@@ -68,16 +72,16 @@ mason.setup_handlers({
 
 lspconfig.clangd.setup {
   cmd = {
-    "clangd", 
-    "--header-insertion=never", 
+    "clangd",
+    "--header-insertion=never",
     "--background-index",
-    "--completion-style=detailed", 
-    "--clang-tidy", 
+    "--completion-style=detailed",
+    "--clang-tidy",
     "--clang-tidy-checks=*",
     "--compile-commands-dir=~/compile_flags.txt"
   },
   filetypes = { "c", "cpp", "objc", "objcpp" },
-  root_dir = lspconfig.util.root_pattern("compile_commands.json", ".clangd", ".git"),  -- Ensure your project has one of these files
+  root_dir = lspconfig.util.root_pattern("compile_commands.json", ".clangd", ".git"),
   single_file_support = true,
   on_attach = on_attach,
   capabilities = capabilities,

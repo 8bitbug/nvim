@@ -27,8 +27,10 @@ local function get_time()
   return ' ' .. os.date("%H:%M")
 end
 
+
 require('lualine').setup {
   options = {
+    globalstatus = false,
     theme = solarized_osaka,
     icons_enabled = true,
     component_separators = { left = '', right = '' },
@@ -41,13 +43,13 @@ require('lualine').setup {
       {
         'diagnostics',
         sources = { 'nvim_lsp' },
-        sections = { 'error', 'warn', 'info' },
+        sections = { 'error', 'warn', 'info', 'hint' },
         diagnostics_color = {
           error = { fg = '#dc322f' },
-          warn  = { fg = '#b58900' },
-          info  = { fg = '#268bd2' },
+          warn = { fg = '#b58900' },
+          info = { fg = '#268bd2' },
+          hint = { fg = '#2aa198' },
         },
-        symbols = { error = ' ', warn = ' ', info = ' ' },
       }
     },
     lualine_x = {},
@@ -62,6 +64,7 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = {},
   },
+  extensions = { 'nvim-tree' },
 }
 
 vim.cmd([[
