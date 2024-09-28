@@ -73,12 +73,12 @@ mason.setup_handlers({
 lspconfig.clangd.setup {
   cmd = {
     "clangd",
+    "--compile-commands-dir=.",
+    "--query-driver=/usr/bin/clang++",
     "--header-insertion=never",
     "--background-index",
     "--completion-style=detailed",
     "--clang-tidy",
-    "--clang-tidy-checks=*",
-    "--compile-commands-dir=~/compile_flags.txt",
   },
   filetypes = { "c", "cpp", "objc", "objcpp" },
   root_dir = lspconfig.util.root_pattern("compile_commands.json", ".clangd", ".git"),
@@ -89,13 +89,13 @@ lspconfig.clangd.setup {
       publishDiagnostics = {
         relatedInformation = true,
         tagSupport = {
-          valueSet = { 1, 2 }
+          valueSet = { 1, 2 },
         },
         severity = {
           [1] = "error",
           [2] = "warning",
           [3] = "info",
-          [4] = "hint"
+          [4] = "hint",
         },
       },
     },
