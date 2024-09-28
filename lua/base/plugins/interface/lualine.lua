@@ -63,7 +63,7 @@ vim.cmd([[autocmd! CursorHold * lua require('lualine').refresh()]])
 vim.cmd([[
   augroup cmdheight
     autocmd!
-    autocmd CmdlineEnter * setlocal cmdheight=1
+    autocmd CmdlineEnter * setlocal cmdheight=0
     autocmd CmdlineLeave * setlocal cmdheight=0
   augroup END
 ]])
