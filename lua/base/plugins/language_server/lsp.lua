@@ -1,7 +1,7 @@
 local lspconfig = require('lspconfig')
 local mason = require('mason-lspconfig')
-require('mason').setup()
 
+require('mason').setup()
 mason.setup({ ensure_installed = { "lua_ls" } })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
