@@ -26,7 +26,7 @@ Neovim plugin dependencies:
 * Nui
 * Cmp extra
 
-**Needs to be installed: **
+**Needs to be installed:**
 * Curl
 * Wget
 * Clang
