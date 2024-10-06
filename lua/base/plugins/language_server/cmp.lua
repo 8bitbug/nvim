@@ -2,6 +2,15 @@ local cmp = require('cmp')
 local lspkind = require('lspkind')
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
+require("noice").setup {
+  lsp = {
+    progress = { enabled = true },
+    signature = { enabled = true },
+    hover = { enabled = true },
+    message = { enabled = true },
+  },
+}
+
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
 cmp.setup({
@@ -42,8 +51,9 @@ cmp.setup({
   },
   sources = {
     { name = 'nvim_lsp', priority = 1000 },
-    { name = 'luasnip',  priority = 800 }, { name = 'buffer', priority = 500 },
-    { name = 'path', priority = 300 }
+    { name = 'luasnip',  priority = 800 },
+    { name = 'buffer',   priority = 500 },
+    { name = 'path',     priority = 300 }
   },
   formatting = {
     format = lspkind.cmp_format({
@@ -53,6 +63,20 @@ cmp.setup({
     })
   },
   experimental = { ghost_text = true }
+})
+
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'cmdline' },
+  },
+})
+
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' },
+  },
 })
 
 vim.cmd([[highlight CmpPmenu guibg=NONE guifg=NONE]])
