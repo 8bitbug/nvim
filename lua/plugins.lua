@@ -73,9 +73,10 @@ require("lazy").setup({
     "neovim/nvim-lspconfig",
     dependencies = {
       "hrsh7th/nvim-cmp", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline", "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip", "onsails/lspkind-nvim",
-      "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim"
+      "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline", "hrsh7th/cmp-calc",
+      "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip", "onsails/lspkind-nvim",
+      "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim",
+      "f3fora/cmp-spell"
     }
   }
 })

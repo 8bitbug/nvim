@@ -53,7 +53,8 @@ cmp.setup({
     { name = 'nvim_lsp', priority = 1000 },
     { name = 'luasnip',  priority = 800 },
     { name = 'buffer',   priority = 500 },
-    { name = 'path',     priority = 300 }
+    { name = 'path',     priority = 300 },
+    { name = 'spell',    priority = 600 }
   },
   formatting = {
     format = lspkind.cmp_format({
@@ -81,3 +82,6 @@ cmp.setup.cmdline('/', {
 
 vim.cmd([[highlight CmpPmenu guibg=NONE guifg=NONE]])
 vim.cmd([[highlight CmpDoc guibg=NONE guifg=NONE]])
+
+vim.opt.spell = true
+vim.opt.spelllang = { 'en_us' }

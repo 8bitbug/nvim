@@ -1,10 +1,7 @@
 # Neovim config
-This is my personal neovim config. 
-
-For the icons and devicons to work you need a nerd font perferably an monospaced so the icons dont get cut off
-in telescope, nvim-tree and etc
-
 Package manager: Lazy.nvim
+Theme: Solarized osaka
+Amount of plugins: 29
 
 Neovim plugins:
 * Treesitter
@@ -17,19 +14,22 @@ Neovim plugins:
 * Telescope
 * Tree
 * Alpha
+* Trouble
+* Noice
+* Gitsigns
+* Bufferline
 
-Theme: Solarized osaka
+Neovim plugin dependencies:
+* Notify
+* Dev-icons
+* Plenary
+* Nui
+* Cmp extra
 
-Language servers:
-* clangd for c/c++
-* Lua_ls for lua
-
-Formatters:
-* clang-format for c/c++
-
-Linters:
-* clang-tidy for c/c++
-
-**Disclaimer**
-You need to install clangd, clang-tidy and clang-format via your systems package manager or build from source
-Make sure to include an compile_flags.txt  in your home directory for clang-tidy to work properly.
+**Needs to be installed: **
+* Curl
+* Wget
+* Clang
+* Clangd
+* Clang-format
+* Clang-tidy
