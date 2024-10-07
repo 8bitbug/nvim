@@ -1,6 +1,6 @@
 #!/bin/bash
 
-log_info() {
+log_info() {                                  
     echo "INFO: $1"
 }
 
@@ -10,7 +10,26 @@ log_warning() {
 
 log_error() {
     echo "ERROR: $1" >&2
+    exit 1
 }
+
+build() {
+    log_info "Building Neovim..."
+    make CMAKE_BUILD_TYPE=RelWithDebInfo || log_error "Build failed."
+
+    cd build || exit
+    log_info "Creating .deb package..."
+    cpack -G DEB || log_error "Failed to create .deb package."
+}
+
+install() {
+    log_info "Installing Neovim..."
+    sudo dpkg -i --force-overwrite nvim-linux64.deb || log_error "Unable to install the .deb file."
+    log_info "Neovim has been installed/updated successfully."
+    exit 0
+}
+
+set -e
 
 if command -v nvim &> /dev/null; then
     log_info "Neovim is already installed."
@@ -23,7 +42,7 @@ if command -v nvim &> /dev/null; then
         if [ -d "$SOURCE_DIR" ]; then
             cd "$SOURCE_DIR" || exit
             log_info "Fetching the latest code..."
-            git pull origin master
+            git pull origin master || log_error "Failed to fetch latest code."
 
             log_info "Building the updated Neovim..."
             build
@@ -31,7 +50,6 @@ if command -v nvim &> /dev/null; then
             install
         else
             log_error "Source directory for Neovim not found."
-            exit 1
         fi
     else
         log_info "Skipping Neovim update."
@@ -42,74 +60,28 @@ else
 fi
 
 log_info "Updating and upgrading system packages..."
-if ! sudo apt-get update; then
-    log_error "Failed to update package list."
-    exit 1
-fi
-
-if ! sudo apt-get upgrade -y; then
-    log_error "Failed to upgrade packages."
-    exit 1
-fi
+sudo apt-get update || log_error "Failed to update package list."
+sudo apt-get upgrade -y || log_error "Failed to upgrade packages."
 
 log_info "Installing required packages..."
-if ! sudo apt-get install -y cmake ninja-build gettext unzip curl git file; then
-    log_error "Failed to install required packages."
-    exit 1
-fi
-
-build() {
-    log_info "Building Neovim..."
-    make CMAKE_BUILD_TYPE=RelWithDebInfo
-
-    if [ $? -ne 0 ]; then
-        log_error "Build failed."
-        exit 1
-    fi
-
-    cd build || exit
-    log_info "Creating .deb package..."
-    cpack -G DEB
-}
-
-install() {
-    log_info "Installing Neovim..."
-    if sudo dpkg -i --force-overwrite nvim-linux64.deb; then
-        log_info "Neovim has been installed/updated successfully."
-        exit 0
-    else
-        log_error "Unable to install the .deb file."
-        exit 1
-    fi
-}
+sudo apt-get install -y cmake ninja-build gettext unzip curl git file || log_error "Failed to install required packages."
 
 SOURCE_DIR="$HOME/Source/src-neovim"
 
 if [ ! -d "$SOURCE_DIR" ]; then
     log_info "Creating source directory..."
     mkdir -p "$HOME/Source"
-fi
 
-cd "$HOME/Source" || exit
-
-if [ ! -d src-neovim ]; then
     log_info "Cloning Neovim repository..."
-    if git clone https://github.com/neovim/neovim.git src-neovim; then
-        cd src-neovim || exit
-        build
-        install
-    else
-        log_error "Unable to clone the repository."
-        exit 1
-    fi
-else
-    cd src-neovim || exit
-    log_info "Neovim source directory found."
-    
-    log_info "Fetching the latest code..."
-    git pull origin master
-
-    log_info "Building Neovim..."
-    build
-    install
+    git clone https://github.com/neovim/neovim.git "$SOURCE_DIR" || log_error "Unable to clone the repository."
 fi
+
+cd "$SOURCE_DIR" || exit
+log_info "Fetching the latest code..."
+git pull origin master || log_error "Failed to fetch latest code."
+
+log_info "Building Neovim..."
+build
+
+log_info "Installing Neovim..."
+install
