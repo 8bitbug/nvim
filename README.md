@@ -1,7 +1,7 @@
 # Neovim config
 Package manager: Lazy.nvim
 Theme: Solarized osaka
-Amount of plugins: 29
+Amount of plugins: 30
 
 Neovim plugins:
 * Treesitter
@@ -18,6 +18,7 @@ Neovim plugins:
 * Noice
 * Gitsigns
 * Bufferline
+* Lspsaga
 
 Neovim plugin dependencies:
 * Notify
