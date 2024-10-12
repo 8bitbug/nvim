@@ -22,4 +22,5 @@ vim.cmd [[
   highlight NvimTreeExecFile guifg=#859900
   highlight NvimTreeSpecialFile guifg=#cb4b16
   highlight NvimTreeSymlink guifg=#2aa198
+  highlight NvimTreeWinSeparator guifg=#3e4452 guibg=NONE
 ]]
