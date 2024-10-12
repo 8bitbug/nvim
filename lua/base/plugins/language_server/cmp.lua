@@ -93,3 +93,12 @@ vim.cmd([[highlight CmpDoc guibg=NONE guifg=#ABB2BF]])
 
 vim.opt.spell = true
 vim.opt.spelllang = { 'en_us' }
+
+local ls = require('luasnip')
+
+local doxygen_snippet = ls.parser.parse_snippet("docfn", "/**\n * $1\n *\n * $0\n */")
+
+ls.snippets = {
+  c = { doxygen_snippet },
+  cpp = { doxygen_snippet },
+}
