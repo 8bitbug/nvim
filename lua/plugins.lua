@@ -80,13 +80,11 @@ require("lazy").setup({
     event = "VimEnter",
   },
   {
-    'craftzdog/solarized-osaka.nvim',
-    lazy = false,
+    "sainnhe/gruvbox-material",
     priority = 1000,
     config = function()
-      require("solarized-osaka").setup({ styles = { floats = "transparent" } })
-      vim.cmd [[colorscheme solarized-osaka]]
-    end
+      vim.cmd([[colorscheme gruvbox-material]])
+    end,
   },
   {
     'nvim-telescope/telescope.nvim',

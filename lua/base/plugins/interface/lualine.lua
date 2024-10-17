@@ -1,20 +1,3 @@
-local solarized_osaka = {
-  normal = {
-    a = { bg = '#859900', fg = '#002b36', gui = 'bold' },
-    b = { bg = '#073642', fg = '#93a1a1' },
-    c = { bg = '#002b36', fg = '#839496' }
-  },
-  insert = { a = { bg = '#268bd2', fg = '#002b36', gui = 'bold' } },
-  visual = { a = { bg = '#d33682', fg = '#002b36', gui = 'bold' } },
-  replace = { a = { bg = '#dc322f', fg = '#002b36', gui = 'bold' } },
-  command = { a = { bg = '#b58900', fg = '#002b36', gui = 'bold' } },
-  inactive = {
-    a = { bg = '#002b36', fg = '#839496' },
-    b = { bg = '#002b36', fg = '#586e75' },
-    c = { bg = '#002b36', fg = '#839496' },
-  },
-}
-
 local function get_time()
   return ' ' .. os.date("%H:%M")
 end
@@ -22,7 +5,7 @@ end
 require('lualine').setup {
   options = {
     globalstatus = true,
-    theme = solarized_osaka,
+    theme = "gruvbox-material",
     icons_enabled = true,
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
