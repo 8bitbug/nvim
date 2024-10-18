@@ -9,6 +9,7 @@ cmp.setup({
     completion = {
       border = 'rounded',
       winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+      scrollbar = false,
     },
     documentation = {
       border = 'rounded',
@@ -54,16 +55,16 @@ cmp.setup({
   },
   formatting = {
     format = lspkind.cmp_format({
-      mode = 'symbol',
+      mode = 'symbol_text',
       maxwidth = 50,
       ellipsis_char = '...',
       before = function(entry, vim_item)
         vim_item.menu = ({
-          nvim_lsp = "[LSP]",
-          luasnip  = "[Snip]",
-          buffer   = "[Buf]",
-          path     = "[Path]",
-          spell    = "[Spell]",
+          nvim_lsp = "",
+          luasnip  = "",
+          buffer   = "",
+          path     = "",
+          spell    = "",
         })[entry.source.name]
         return vim_item
       end,
