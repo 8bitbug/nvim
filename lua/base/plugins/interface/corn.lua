@@ -25,4 +25,7 @@ require('corn').setup({
   end,
 })
 
-require('corn').toggle(true)
+require('corn').toggle('on')
+require('corn').render()
+require('corn').scope('line')
+require('corn').scope_cycle()
