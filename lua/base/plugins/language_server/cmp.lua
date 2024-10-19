@@ -93,8 +93,8 @@ vim.cmd([[highlight CmpPmenu guibg=NONE guifg=#C678DD]])
 vim.cmd([[highlight CmpDoc guibg=NONE guifg=#ABB2BF]])
 vim.cmd([[highlight Pmenu guibg=NONE guifg=#C678DD]])
 vim.cmd([[highlight NormalFloat guibg=NONE]])
-vim.cmd([[highlight FloatBorder guifg=#3e4452 guibg=NONE]])
-vim.cmd([[highlight CmpDocBorder guifg=#3e4452 guibg=NONE]])
+vim.cmd([[highlight FloatBorder guifg=#7c6f64 guibg=NONE]])
+vim.cmd([[highlight CmpDocBorder guifg=#7c6f64 guibg=NONE]])
 vim.cmd([[highlight PmenuSel guibg=#FFA500 guifg=#1d2021]])
 
 vim.opt.spell = true

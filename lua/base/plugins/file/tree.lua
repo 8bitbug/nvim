@@ -14,5 +14,5 @@ vim.cmd [[
   highlight NvimTreeNormal guibg=NONE
   highlight NvimTreeNormalNC guibg=NONE
   highlight NvimTreeEndOfBuffer guibg=NONE
-  highlight NvimTreeWinSeparator guifg=#3e4452 guibg=NONE
+  highlight NvimTreeWinSeparator guifg=#7c6f64 guibg=NONE
 ]]
