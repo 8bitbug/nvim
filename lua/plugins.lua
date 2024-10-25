@@ -12,39 +12,6 @@ vim.opt.termguicolors = true
 require("lazy").setup({
   { 'RaafatTurki/corn.nvim' },
   {
-    '2kabhishek/octohub.nvim',
-    cmd = {
-      'OctoRepos',
-      'OctoRepo',
-      'OctoStats',
-      'OctoActivityStats',
-      'OctoContributionStats',
-      'OctoRepoStats',
-      'OctoProfile',
-      'OctoRepoWeb',
-    },
-    keys = {
-      '<leader>goa',
-      '<leader>goc',
-      '<leader>gof',
-      '<leader>gog',
-      '<leader>goh',
-      '<leader>goi',
-      '<leader>goo',
-      '<leader>gop',
-      '<leader>gor',
-      '<leader>gos',
-      '<leader>got',
-      '<leader>gou',
-      '<leader>gow',
-    },
-    dependencies = {
-      '2kabhishek/utils.nvim',
-      'nvim-telescope/telescope.nvim'
-    },
-    opts = {},
-  },
-  {
     "nvimdev/lspsaga.nvim",
     config = function()
       require("lspsaga").setup({})
@@ -83,7 +50,8 @@ require("lazy").setup({
     "sainnhe/gruvbox-material",
     priority = 1000,
     config = function()
-      vim.g.gruvbox_material_transparent_background = true
+      -- vim.g.gruvbox_material_transparent_background = true
+      vim.g.gruvbox_material_background = 'hard'
       vim.cmd([[colorscheme gruvbox-material]])
     end,
   },
