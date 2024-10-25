@@ -47,13 +47,14 @@ require("lazy").setup({
     event = "VimEnter",
   },
   {
-    "sainnhe/gruvbox-material",
+    "zenbones-theme/zenbones.nvim",
+    dependencies = "rktjmp/lush.nvim",
+    lazy = false,
     priority = 1000,
     config = function()
-      -- vim.g.gruvbox_material_transparent_background = true
-      vim.g.gruvbox_material_background = 'hard'
-      vim.cmd([[colorscheme gruvbox-material]])
-    end,
+      vim.g.zenbones_darken_comments = 45
+      vim.cmd.colorscheme('zenbones')
+    end
   },
   {
     'nvim-telescope/telescope.nvim',
