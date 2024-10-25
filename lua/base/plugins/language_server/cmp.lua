@@ -95,11 +95,10 @@ vim.cmd([[highlight Pmenu guibg=NONE guifg=#C678DD]])
 vim.cmd([[highlight NormalFloat guibg=NONE]])
 vim.cmd([[highlight FloatBorder guifg=#837771 guibg=NONE]])
 vim.cmd([[highlight CmpDocBorder guifg=#837771 guibg=NONE]])
-vim.cmd([[highlight PmenuSel guibg=#25211f guifg=#ffffff]])
+vim.cmd([[highlight PmenuSel guibg=NONE guifg=#f2ebe3]])
 
 vim.opt.spell = true
 vim.opt.spelllang = { 'en_us' }
-
 local ls = require('luasnip')
 
 local doxygen_snippet = ls.parser.parse_snippet("docfn", "/**\n * $1\n *\n * $0\n */")

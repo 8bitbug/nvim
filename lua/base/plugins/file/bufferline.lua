@@ -8,10 +8,9 @@ require('bufferline').setup {
     offsets = {
       {
         filetype = "NvimTree",
-        text = "File Explorer",
-        highlight = "Directory",
+        text = nil,
         separator = true,
-        text_align = "left"
+        padding = 0
       }
     },
   }
