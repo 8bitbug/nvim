@@ -23,3 +23,5 @@ vim.api.nvim_set_keymap('n', '<leader>xx', ':Trouble diagnostics toggle<CR>', { 
 vim.api.nvim_set_keymap('n', '<leader>xf', ':Trouble diagnostics focus<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<leader>nm', ':NoiceDismiss<CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<leader>lg', ':LazyGit<CR>', { noremap = true, silent = true })

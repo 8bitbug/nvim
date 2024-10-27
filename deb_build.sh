@@ -37,7 +37,7 @@ if command -v nvim &> /dev/null; then
 
     if [[ "$res" =~ ^[Yy]$ ]]; then
         log_info "Updating Neovim..."
-        SOURCE_DIR="$HOME/Source/src-neovim"
+        SOURCE_DIR="/usr/src/neovim"
 
         if [ -d "$SOURCE_DIR" ]; then
             cd "$SOURCE_DIR" || exit
@@ -66,7 +66,7 @@ sudo apt-get upgrade -y || log_error "Failed to upgrade packages."
 log_info "Installing required packages..."
 sudo apt-get install -y cmake ninja-build gettext unzip curl git file || log_error "Failed to install required packages."
 
-SOURCE_DIR="$HOME/Source/src-neovim"
+SOURCE_DIR="/usr/src/neovim"
 
 if [ ! -d "$SOURCE_DIR" ]; then
     log_info "Creating source directory..."

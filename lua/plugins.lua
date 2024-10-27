@@ -10,6 +10,20 @@ vim.opt.rtp:prepend(lazypath)
 vim.opt.termguicolors = true
 
 require("lazy").setup({
+  {
+    "kdheepak/lazygit.nvim",
+    lazy = true,
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
   { 'RaafatTurki/corn.nvim' },
   {
     "nvimdev/lspsaga.nvim",
@@ -35,12 +49,6 @@ require("lazy").setup({
         auto_close = true,
       }
     end,
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require('gitsigns').setup()
-    end
   },
   {
     "goolord/alpha-nvim",
