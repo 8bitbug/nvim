@@ -11,3 +11,4 @@
 * Clangd
 * Clang-format
 * Clang-tidy
+* Lazygit
