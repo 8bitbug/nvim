@@ -1,6 +1,7 @@
 require('bufferline').setup {
   options = {
     diagnostics = "nvim_lsp",
+    ---@diagnostic disable-next-line: unused-local
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
       local icon = level:match("error") and " " or " "
       return " " .. icon .. count
@@ -17,6 +18,7 @@ require('bufferline').setup {
 }
 
 local fixBufferLineSeparator = function()
+  ---@diagnostic disable-next-line: deprecated
   vim.api.nvim_set_hl(0, "BufferLineOffsetSeparator", vim.api.nvim_get_hl_by_name('NvimTreeWinSeparator', true))
 end
 
