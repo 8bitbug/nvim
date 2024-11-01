@@ -70,7 +70,7 @@ mason.setup_handlers({
         }
       }
     })
-  end
+  end,
 })
 
 lspconfig.clangd.setup {
@@ -110,3 +110,64 @@ lspconfig.clangd.setup {
     }
   }
 }
+
+lspconfig.rust_analyzer.setup {
+  settings = {
+    ['rust-analyzer'] = {
+      imports = {
+        granularity = {
+          group = "module",
+        },
+        prefix = "self",
+      },
+      cargo = {
+        buildScripts = {
+          enable = true,
+        },
+        features = "all",
+      },
+      diagnostics = {
+        enable = true,
+        disabled = {
+          -- Disable specific diagnostics if needed
+          -- "unresolved-proc-macro",
+          -- "inactive-code",
+        },
+        experimental = {
+          enable = true,
+        },
+      },
+      checkOnSave = {
+        command = "clippy",
+        extraArgs = { "--all-targets", "--all-features" },
+      },
+      format = {
+        enableRangeFormatting = true,
+        extraArgs = { "--edition", "2021" },
+      },
+      inlayHints = {
+        enable = true,
+        parameterHints = true,
+        typeHints = true,
+        chainingHints = true,
+        maxLength = nil,
+      },
+      completion = {
+        postfix = {
+          enable = true,
+        },
+        autoself = {
+          enable = true,
+        },
+      },
+    },
+  },
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+vim.diagnostic.config({
+  virtual_text = false,
+  underline = true,
+  signs = false,
+})

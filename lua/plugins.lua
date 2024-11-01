@@ -24,11 +24,18 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",
     },
   },
-  { 'RaafatTurki/corn.nvim' },
   {
     "nvimdev/lspsaga.nvim",
     config = function()
-      require("lspsaga").setup({})
+      require('lspsaga').setup({
+        lightbulb = {
+          enable = false,
+          sign = false,
+          virtual_text = false,
+          debounce = 0,
+          sign_priority = 0,
+        },
+      })
     end,
     dependencies = { { "nvim-treesitter/nvim-treesitter" } }
   },
