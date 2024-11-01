@@ -12,3 +12,5 @@
 * Clang-format
 * Clang-tidy
 * Lazygit
+* Rust-analyzer
+* Rustfmt
