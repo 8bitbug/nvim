@@ -15,7 +15,9 @@ augroup END
 
 vim.g.mapleader = " "
 
-vim.api.nvim_set_keymap('n', '<leader>cl', ':terminal<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>cl', ':ToggleTerm<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<leader>cl', '<cmd>ToggleTerm<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
