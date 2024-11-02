@@ -6,6 +6,13 @@ vim.opt.smartindent = true
 
 vim.opt.number = true
 
+vim.cmd [[
+augroup TerminalSettings
+  autocmd!
+  autocmd TermOpen * setlocal nonumber norelativenumber nospell
+augroup END
+]]
+
 vim.g.mapleader = " "
 
 vim.api.nvim_set_keymap('n', '<leader>cl', ':terminal<CR>', { noremap = true, silent = true })
