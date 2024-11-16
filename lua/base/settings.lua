@@ -34,3 +34,5 @@ vim.api.nvim_set_keymap('n', '<leader>xf', ':Trouble diagnostics focus<CR>', { n
 vim.api.nvim_set_keymap('n', '<leader>nm', ':NoiceDismiss<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<leader>lg', ':LazyGit<CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<leader>ti', ':TimerlyToggle<CR>', { noremap = true, silent = true })

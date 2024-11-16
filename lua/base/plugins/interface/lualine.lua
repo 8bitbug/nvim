@@ -11,7 +11,24 @@ require('lualine').setup {
     section_separators = { left = '', right = '' },
   },
   sections = {
-    lualine_a = { 'mode' },
+    lualine_a = {
+      {
+        'mode',
+        fmt = function(str)
+          local mode_map = {
+            ['NORMAL'] = ' NORMAL',
+            ['INSERT'] = ' INSERT',
+            ['VISUAL'] = '󰒅 VISUAL',
+            ['V-LINE'] = '󰕷 V-LINE',
+            ['V-BLOCK'] = '󰝤 V-BLOCK',
+            ['REPLACE'] = '󰑌 REPLACE',
+            ['COMMAND'] = ' COMMAND',
+            ['TERMINAL'] = ' TERMINAL',
+          }
+          return mode_map[str] or str
+        end,
+      }
+    },
     lualine_b = { 'branch' },
     lualine_c = {
       {

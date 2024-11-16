@@ -11,6 +11,12 @@ vim.opt.termguicolors = true
 
 require("lazy").setup({
   {
+    "nvzone/timerly",
+    dependencies = {
+      "nvzone/volt",
+    }
+  },
+  {
     'akinsho/toggleterm.nvim',
     version = "*",
     config = true
