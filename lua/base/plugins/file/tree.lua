@@ -6,8 +6,24 @@ vim.opt.termguicolors = true
 require("nvim-tree").setup({
   sort = { sorter = "case_sensitive" },
   view = { width = 30, adaptive_size = true },
-  renderer = { group_empty = true, root_folder_label = false },
-  filters = { dotfiles = true }
+  filters = { dotfiles = true },
+  renderer = {
+    group_empty = true,
+    root_folder_label = false,
+    icons = {
+      glyphs = {
+        git = {
+          unstaged = "",
+          staged = "✓",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "",
+          deleted = "",
+          ignored = "◌"
+        }
+      }
+    }
+  }
 })
 
 vim.cmd [[
