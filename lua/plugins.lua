@@ -11,10 +11,45 @@ vim.opt.termguicolors = true
 
 require("lazy").setup({
   {
-    "nvzone/timerly",
+    'echasnovski/mini.files',
+    version = false,
+    config = function()
+      require('mini.files').setup()
+    end
+  },
+  {
+    "ibhagwan/fzf-lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("fzf-lua").setup({})
+    end
+  },
+  {
+    "cbochs/portal.nvim",
     dependencies = {
-      "nvzone/volt",
-    }
+      "cbochs/grapple.nvim",
+      "ThePrimeagen/harpoon"
+    },
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({})
+    end
+  },
+  {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  },
+  {
+    "karb94/neoscroll.nvim",
+    config = function()
+      require('neoscroll').setup({})
+    end
   },
   {
     'akinsho/toggleterm.nvim',
@@ -83,11 +118,6 @@ require("lazy").setup({
     end
   },
   {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.8',
-    dependencies = { 'nvim-lua/plenary.nvim' }
-  },
-  {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" }
   },
@@ -99,7 +129,6 @@ require("lazy").setup({
     end
   },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-  { "nvim-tree/nvim-tree.lua" },
   {
     "akinsho/bufferline.nvim",
     version = "*",
