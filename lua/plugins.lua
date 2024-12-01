@@ -52,11 +52,6 @@ require("lazy").setup({
     end
   },
   {
-    'akinsho/toggleterm.nvim',
-    version = "*",
-    config = true
-  },
-  {
     "kdheepak/lazygit.nvim",
     lazy = true,
     cmd = {
