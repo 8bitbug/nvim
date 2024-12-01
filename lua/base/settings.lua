@@ -5,6 +5,8 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 
 vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.signcolumn = "number"
 
 vim.cmd [[
 augroup TerminalSettings
