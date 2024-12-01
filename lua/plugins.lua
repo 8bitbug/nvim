@@ -94,16 +94,6 @@ require("lazy").setup({
     }
   },
   {
-    "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("trouble").setup {
-        use_diagnostics_signs = true,
-        auto_close = true,
-      }
-    end,
-  },
-  {
     "goolord/alpha-nvim",
     event = "VimEnter",
   },
@@ -129,11 +119,6 @@ require("lazy").setup({
     end
   },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-  {
-    "akinsho/bufferline.nvim",
-    version = "*",
-    dependencies = "nvim-tree/nvim-web-devicons"
-  },
   {
     "neovim/nvim-lspconfig",
     dependencies = {

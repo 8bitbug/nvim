@@ -27,8 +27,7 @@ vim.keymap.set('n', '<leader>fh', "<cmd>FzfLua helptags<CR>")
 vim.keymap.set('n', '<leader>tt', MiniFiles.open, {})
 vim.keymap.set('n', '<leader>tf', MiniFiles.close, {})
 
-vim.api.nvim_set_keymap('n', '<leader>xx', ':Trouble diagnostics toggle<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>xf', ':Trouble diagnostics focus<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>xx', ':FzfLua lsp_workspace_diagnostics<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<leader>nm', ':NoiceDismiss<CR>', { noremap = true, silent = true })
 
