@@ -76,6 +76,9 @@ require("lazy").setup({
           debounce = 0,
           sign_priority = 0,
         },
+        symbol_in_winbar = {
+          enable = false,
+        },
       })
     end,
     dependencies = { { "nvim-treesitter/nvim-treesitter" } }

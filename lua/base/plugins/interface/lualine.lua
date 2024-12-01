@@ -29,7 +29,7 @@ require('lualine').setup {
         end,
       }
     },
-    lualine_b = { 'branch' },
+    lualine_b = { 'branch', 'diff' },
     lualine_c = {
       {
         'diagnostics',
@@ -44,14 +44,14 @@ require('lualine').setup {
       },
     },
     lualine_x = {},
-    lualine_y = { 'location' },
+    lualine_y = { 'filetype', 'filename' },
     lualine_z = { get_time },
   },
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
     lualine_c = {},
-    lualine_x = { 'location' },
+    lualine_x = {},
     lualine_y = {},
     lualine_z = {},
   },
