@@ -11,6 +11,14 @@ vim.opt.termguicolors = true
 
 require("lazy").setup({
   {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "VeryLazy",
+    priority = 1000,
+    config = function()
+      require('tiny-inline-diagnostic').setup()
+    end
+  },
+  {
     "folke/flash.nvim",
     event = "VeryLazy",
     opts = {},
