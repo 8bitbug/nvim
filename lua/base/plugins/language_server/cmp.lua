@@ -95,7 +95,7 @@ vim.cmd([[highlight Pmenu guibg=NONE guifg=#C678DD]])
 vim.cmd([[highlight NormalFloat guibg=NONE]])
 vim.cmd([[highlight FloatBorder guifg=#837771 guibg=NONE]])
 vim.cmd([[highlight CmpDocBorder guifg=#837771 guibg=NONE]])
-vim.cmd([[highlight PmenuSel guibg=NONE guifg=#f2ebe3]])
+vim.cmd([[highlight PmenuSel guibg=NONE guifg=#b0b6bc]])
 
 vim.opt.spell = true
 vim.opt.spelllang = { 'en_us' }
