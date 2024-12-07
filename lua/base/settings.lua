@@ -6,14 +6,19 @@ vim.opt.smartindent = true
 
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.signcolumn = "number"
+vim.opt.statuscolumn = "%=%{v:relnum > 0 ? v:relnum : v:lnum} "
 
-vim.cmd [[
-augroup TerminalSettings
-  autocmd!
-  autocmd TermOpen * setlocal nonumber norelativenumber nospell
-augroup END
-]]
+vim.api.nvim_create_augroup("SpecialBufferSettings", { clear = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = "SpecialBufferSettings",
+  pattern = { "alpha", "dashboard", "NvimTree", "TelescopePrompt", "lazy", "terminal" },
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+    vim.opt_local.statuscolumn = ""
+  end,
+})
 
 vim.g.mapleader = " "
 
